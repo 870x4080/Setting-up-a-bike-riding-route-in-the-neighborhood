@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자전거 라이딩맵</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚴‍♂️ 자전거 라이딩맵</h1>
+            <div class="controls">
+                <button id="startDrawing" class="btn btn-primary">길 그리기 시작</button>
+                <button id="stopDrawing" class="btn btn-secondary" disabled>길 그리기 중지</button>
+                <button id="undoLastPoint" class="btn btn-warning" disabled>마지막 점 삭제</button>
+                <button id="clearRoute" class="btn btn-danger">경로 지우기</button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="route-info">
+                    <h3>현재 경로 정보</h3>
+                    <div id="routeStats">
+                        <p>거리: <span id="distance">0</span> km</p>
+                        <p>소요시간: <span id="duration">0</span> 분</p>
+                    </div>
+                    <div class="road-snap-toggle">
+                        <label>
+                            <input type="checkbox" id="roadSnapToggle" checked>
+                            도로에 자동 스냅
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="save-route">
+                    <h3>경로 저장</h3>
+                    <input type="text" id="routeTitle" placeholder="경로 제목을 입력하세요" maxlength="50">
+                    <button id="saveRoute" class="btn btn-success" disabled>경로 저장</button>
+                </div>
+                
+                <div class="saved-routes">
+                    <h3>저장된 경로</h3>
+                    <div id="routesList">
+                        <p class="no-routes">저장된 경로가 없습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
